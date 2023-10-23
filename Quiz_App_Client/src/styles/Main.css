@@ -1,0 +1,30 @@
+
+.title{
+    text-align: center;
+    font-size: x-large;
+}
+
+.info ol li {
+  line-height: 2rem;
+}
+
+.textInput{
+    max-width:20rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border: 0;
+    border-radius: 6px;
+    padding: 4%;
+}
+
+
+
+#select-helper-label {
+  color: #7b91a7;
+}
+#select-helper-text {
+  color: #7b91a7;
+}
+#select-helper {
+  color: white;
+}
