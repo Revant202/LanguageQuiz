@@ -32,16 +32,19 @@ Backend:
     - Pushing the result to the database and updating the user scoreboard and leaderboard.
 ## Screenshots
 
+- Login Screen
+![Login](https://github.com/Revant202/LanguageQuiz/assets/76607683/c4e2e723-b5e6-4c4c-b3c2-4deaabc77ae8)
 - Landing Screen
-![landing](https://github.com/Revant202/LanguageQuiz/assets/76607683/d0666905-bcfb-49bf-a0ad-ba5470266c48)
-- leaderboard
-![leaderboard](https://github.com/Revant202/LanguageQuiz/assets/76607683/3e0a691c-10a1-4700-b286-d15e55cebaae)
+![landing](https://github.com/Revant202/LanguageQuiz/assets/76607683/3c43a9df-7d4c-4328-9448-369b0a571320)
+- Scores screen
+![leaderboard](https://github.com/Revant202/LanguageQuiz/assets/76607683/92fa554f-6770-40f5-ae94-0a02c900ec20)
 - quiz screen
-![quiz](https://github.com/Revant202/LanguageQuiz/assets/76607683/89657293-a1b0-44f7-8a1b-a8709188cd8e)
+![quiz](https://github.com/Revant202/LanguageQuiz/assets/76607683/17d27970-e7f2-4129-ac90-0a6eb244c3ce)
 - result screen
-![result](https://github.com/Revant202/LanguageQuiz/assets/76607683/75f5306c-7f11-4c97-b882-89d4d89d0717)
-- compare screen
-![compare](https://github.com/Revant202/LanguageQuiz/assets/76607683/b7787bfc-bd7d-4d31-b80d-e2097f197588)
+![result](https://github.com/Revant202/LanguageQuiz/assets/76607683/d18e35e1-4644-4782-8b89-d1939567836b)
+
+
+
 
 
 ## Run Locally
