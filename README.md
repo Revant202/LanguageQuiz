@@ -8,6 +8,10 @@ helps users improve their language proficiency through interactive exercises
 and activities. The game should include frontend UI components, backend
 logic for scoring, and a database to store user progress and language data.
 
+## Live Website
+Language Quiz App (client) - https://language-quiz-client.onrender.com
+
+Backend API - https://language-quiz-server.onrender.com
 
 ## Implementation
 I have implemented the following features -
@@ -30,6 +34,7 @@ Backend:
     - Mongoose used to create schemas for users, questions and results.
     - Scoring system and result creation
     - Pushing the result to the database and updating the user scoreboard and leaderboard.
+    
 ## Screenshots
 
 - Login Screen
@@ -42,9 +47,6 @@ Backend:
 ![quiz](https://github.com/Revant202/LanguageQuiz/assets/76607683/17d27970-e7f2-4129-ac90-0a6eb244c3ce)
 - result screen
 ![result](https://github.com/Revant202/LanguageQuiz/assets/76607683/d18e35e1-4644-4782-8b89-d1939567836b)
-
-
-
 
 
 ## Run Locally
@@ -153,11 +155,4 @@ JWT_SECREAT = ...your jwt secret..
 ```
 and run the quiz app.
 
-## Deployment
-
-To deploy this project run
-
-```bash
-  npm run deploy
-```
 
