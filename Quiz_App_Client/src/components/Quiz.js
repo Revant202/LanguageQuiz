@@ -3,29 +3,18 @@ import Questions from "./Questions";
 
 import { MoveNextQuestion, MovePrevQuestion } from "../hooks/FetchQuestion";
 import { PushAnswer } from "../hooks/setResult";
-
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 
 /** redux store import */
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigation } from "react-router-dom";
 
 export default function Quiz() {
   const [check, setChecked] = useState(undefined);
-
   const result = useSelector((state) => state.result.result);
   const language = useSelector((state) => state.language.language);
   const { queue, trace } = useSelector((state) => state.questions);
   const dispatch = useDispatch();
-
-  function onEndQuiz() {
-    dispatch(PushAnswer(check));
-  }
 
   /*next button event handler */
   function onNext() {
@@ -65,14 +54,14 @@ export default function Quiz() {
       <div className="card">
         <div className="titlebar">
           <div className="title">LANGUAGE QUIZ</div>
-          <Button
+          {/* <Button
             variant="outlined"
             onClick={onEndQuiz}
             to="/result"
             style={{ color: "#90CAF9", borderColor: "#90CAF9" }}
           >
             END QUIZ
-          </Button>
+          </Button> */}
         </div>
         <div className="content">
           <div className="info">

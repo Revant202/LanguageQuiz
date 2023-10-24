@@ -6,6 +6,9 @@
 
 .info ol li {
   line-height: 2rem;
+  font-size: medium;
+  color: #f0f0f0c6;
+  letter-spacing: 0.02rem;
 }
 
 .textInput{

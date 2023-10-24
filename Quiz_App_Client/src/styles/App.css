@@ -42,7 +42,7 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px 30px 10px 30px;
+  padding: 20px 30px 20px 30px;
   border: 3px solid var(--light-color);
   border-left: 0px;
   border-radius: 0px 6px 6px 0px;
@@ -51,9 +51,6 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
-  width:15rem;
-  margin:1rem 0 1rem 0 
 }
 
 .text-light {
@@ -76,6 +73,15 @@ html {
   flex-direction: column;
   justify-self: flex-end;
   gap:1rem
+}
+.loginCard{
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  gap:1.2rem;
+  border-radius: 6px 6px 6px 6px;
 }
 /* 
 .container .questions .qid{

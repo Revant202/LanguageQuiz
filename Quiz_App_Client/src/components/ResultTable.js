@@ -10,7 +10,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
 const columns = [
-  { id: "name", label: "Name", minWidth: 170 },
+  { id: "name", label: "UserID", minWidth: 170 },
   { id: "attempt", label: "Attempt", minWidth: 100 },
   {
     id: "score",

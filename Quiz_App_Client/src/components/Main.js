@@ -1,7 +1,6 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { setUserId } from "../redux/result_reducer";
 import { setLanguage } from "../hooks/setLanguage";
 import "../styles/Main.css";
 
@@ -12,29 +11,29 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import Titlebar from "./Titlebar";
+import { resetAllAction } from "../redux/question_reducer";
+import { resetResultAction } from "../redux/result_reducer";
+import { resetUser } from "../redux/result_reducer";
 
 export default function Main() {
-  const inputRef = useRef(null);
   const dispatch = useDispatch();
   const language = useSelector((state) => state.language.language);
   const handleSelect = (event) => {
     dispatch(setLanguage(event.target.value));
   };
-
-  function startQuiz() {
-    if (inputRef.current?.value) {
-      dispatch(setUserId(inputRef.current?.value));
-    }
+  function onLogout() {
+    dispatch(resetAllAction());
+    dispatch(resetResultAction());
+    dispatch(resetUser());
   }
-
   return (
     <div className="container">
       <div className="card">
-        <Titlebar/>
+        <Titlebar />
         <div className="content">
           <div className="info">
             <ol>
-              <li>You will be asked 10 questions one after another.</li>
+              <li>You will be asked 5 questions one after another.</li>
               <li>10 points is awarded for the correct answer.</li>
               <li>
                 Each question has three options. You can choose only one
@@ -46,31 +45,12 @@ export default function Main() {
           </div>
           <div className="sidebar">
             <div className="buttons">
-              <input
-                ref={inputRef}
-                className="textInput"
-                type="text"
-                placeholder="Username"
-              />
-              <input
-                // ref={inputRef}
-                className="textInput"
-                type="password"
-                placeholder="Password"
-              />
-              <Button variant="outlined" component={Link} to="/quiz" style={{ color: "#90CAF9",borderColor: "#90CAF9" }}>
-                New User ?
-              </Button>
-            </div>
-
-            <div className="buttons">
               <FormControl
                 sx={{
                   marginTop: 2,
                   "& .MuiSvgIcon-root": {
                     color: "white",
                   },
-                   
                 }}
               >
                 <InputLabel id="select-helper-label">Language</InputLabel>
@@ -80,6 +60,21 @@ export default function Main() {
                   value={language}
                   label="Language"
                   onChange={handleSelect}
+                  sx={{
+                    color: "white",
+                    '.MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#f0f0f0c6',
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: '#90CAF9',
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgba(228, 219, 233, 0.25)',
+                    },
+                    '.MuiSvgIcon-root ': {
+                      fill: "white !important",
+                    }
+                  }}
                 >
                   <MenuItem
                     value={"english"}
@@ -114,10 +109,21 @@ export default function Main() {
                 component={Link}
                 to="/quiz"
                 variant="contained"
-                onClick={startQuiz}
-                style={{ color: "#101418",backgroundColor:"#90CAF9" }}
+                // onClick={startQuiz}
+                style={{ color: "#101418", backgroundColor: "#90CAF9" }}
               >
                 Start Quiz
+              </Button>
+            </div>
+            <div className="buttons">
+            <Button
+                component={Link}
+                to="/"
+                variant="outlined"
+                onClick={onLogout}
+                style={{ color: "#90CAF9",borderColor: "#90CAF9" }}
+              >
+                Logout
               </Button>
             </div>
           </div>

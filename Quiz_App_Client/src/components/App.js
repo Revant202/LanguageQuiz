@@ -11,13 +11,19 @@ import LeaderBoard from "./LeaderBoard";
 import Titlebar from "./Titlebar";
 
 import Button from "@mui/material/Button";
+import Scores from "./Scores";
+import SignIn from "./auth/SignIn";
+import SignUp from "./auth/SignUp";
+import AuthDetails from "./AuthDetails";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Main />}></Route>
+        <Route exact path="/Login" element={<SignIn />}></Route>
+        <Route exact path="/Signup" element={<SignUp />}></Route>
+          <Route exact path="/" element={<CheckUserExist><Main /></CheckUserExist>}></Route>
           <Route
             exact
             path="/quiz"
@@ -42,12 +48,17 @@ function App() {
             element={
               <div className="container">
                 <div className="card">
-                <div className="titlebar">
-          <div className="title">LANGUAGE QUIZ</div>
-          <Button variant="outlined" component={Link} to="/" style={{ color: "#90CAF9",borderColor: "#90CAF9" }}>
-            Go Back
-          </Button>   
-        </div>
+                  <div className="titlebar">
+                    <div className="title">LANGUAGE QUIZ</div>
+                    <Button
+                      variant="outlined"
+                      component={Link}
+                      to="/"
+                      style={{ color: "#90CAF9", borderColor: "#90CAF9" }}
+                    >
+                      Go Back
+                    </Button>
+                  </div>
                   <div className="content">
                     <LeaderBoard />
                   </div>
@@ -55,6 +66,7 @@ function App() {
               </div>
             }
           ></Route>
+          <Route exact path="/scores" element={<Scores />}></Route>
         </Routes>
       </Router>
     </>

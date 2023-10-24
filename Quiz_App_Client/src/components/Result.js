@@ -13,6 +13,7 @@ import {
 /** import actions  */
 import { resetAllAction } from "../redux/question_reducer";
 import { resetResultAction } from "../redux/result_reducer";
+import { resetUser } from "../redux/result_reducer";
 import { usePublishResult } from "../hooks/setResult";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
@@ -44,6 +45,11 @@ export default function Result() {
     achived: flag ? "Passed" : "Failed",
   });
 
+  function onLogout() {
+    dispatch(resetAllAction());
+    dispatch(resetResultAction());
+    dispatch(resetUser());
+  }
   function onRestart() {
     dispatch(resetAllAction());
     dispatch(resetResultAction());
@@ -53,83 +59,50 @@ export default function Result() {
     <div className="container">
       <div className="card">
         <div className="titlebar">
-          {alignment === "My Scores" ? (
-            <ResultTable userId={userId} />
-          ) : (
-            <LeaderBoard />
-          )}
-
-          <div style={{ display: "flex"}}>
-            <ToggleButtonGroup
-              color="primary"
-              value={alignment}
-              exclusive
-              onChange={handleChange}
-              aria-label="scores"
-            >
-              <ToggleButton
-                value="My Scores"
-                style={
-                  alignment === "My Scores"
-                    ? {
-                        color: "#101418",
-                        backgroundColor: "#90CAF9",
-                      }
-                    : {
-                        borderColor: "#90CAF9",
-                        color: "#90CAF9",
-                      }
-                }
-              >
-                My Scores
-              </ToggleButton>
-              <ToggleButton
-                value="Leaderboard"
-                style={
-                  alignment === "Leaderboard"
-                    ? {
-                        color: "#101418",
-                        backgroundColor: "#90CAF9",
-                      }
-                    : {
-                        borderColor: "#90CAF9",
-                        color: "#90CAF9",
-                      }
-                }
-              >
-                Leaderboard
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </div>
+          <ResultTable userId={userId} />
+          <h3 style={{textAlign:"center"}}>SCOREBOARD</h3>
         </div>
 
         <div className="content">
           <div
+            className="sidebar"
             style={{
-              display: "flex",
-              flexDirection: "column",
               color: " #cecece",
-            //   margin: "0rem 4rem 0.57rem 0rem",
-              justifyContent: "flex-end",
-              alignItems:"flex-end",
-              width:"100%"
             }}
           >
             <table>
               <tr>
-                  <td style={{ color: "#90CAF9", maxWidth: "7rem",textAlign: "left" }}>
-                    Username:
-                  </td>
+                <td
+                  style={{
+                    color: "#90CAF9",
+                    maxWidth: "7rem",
+                    textAlign: "left",
+                  }}
+                >
+                  Username:
+                </td>
                 <td>{userId || ""}</td>
               </tr>
               <tr>
-                <td style={{ color: "#90CAF9", maxWidth: "7rem",textAlign: "left" }}>
+                <td
+                  style={{
+                    color: "#90CAF9",
+                    maxWidth: "7rem",
+                    textAlign: "left",
+                  }}
+                >
                   Questions attempted:
                 </td>
                 <td>{attempts || 0}</td>
               </tr>
               <tr>
-                <td style={{ color: "#90CAF9", maxWidth: "7rem",textAlign: "left" }}>
+                <td
+                  style={{
+                    color: "#90CAF9",
+                    maxWidth: "7rem",
+                    textAlign: "left",
+                  }}
+                >
                   Your Score:
                 </td>
                 <td>
@@ -137,7 +110,13 @@ export default function Result() {
                 </td>
               </tr>
               <tr>
-                <td style={{ color: "#90CAF9", maxWidth: "7rem", textAlign: "left"}}>
+                <td
+                  style={{
+                    color: "#90CAF9",
+                    maxWidth: "7rem",
+                    textAlign: "left",
+                  }}
+                >
                   You Result:
                 </td>
                 <td
@@ -150,23 +129,35 @@ export default function Result() {
                 </td>
               </tr>
             </table>
-
-            <Button
-              component={Link}
-              to="/"
-              variant="contained"
-              onClick={onRestart}
-              style={{
-                color: "#101418",
-                backgroundColor: "#90CAF9",
-                borderColor: "#90CAF9",
-                padding: "0.76rem",
-                marginBottom:"0.63rem",
-                marginTop:"1.1rem"
-              }}
-            >
-              Try Again
-            </Button>
+            <div className="buttons">
+              <Button
+                component={Link}
+                to="/"
+                variant="contained"
+                onClick={onRestart}
+                style={{ color: "#101418", backgroundColor: "#90CAF9" }}
+              >
+                Exit
+              </Button>
+              <Button
+                component={Link}
+                to="/"
+                variant="outlined"
+                onClick={onLogout}
+                style={{ color: "#90CAF9", borderColor: "#90CAF9" }}
+              >
+                Logout
+              </Button>
+                {/* <Button
+                  variant="outlined"
+                  component={Link}
+                  to="/scores"
+                  style={{ color: "#90CAF9", borderColor: "#90CAF9" }}
+                  onClick={onRestart}
+                >
+                  Past Scores
+                </Button> */}
+            </div>
           </div>
         </div>
       </div>
