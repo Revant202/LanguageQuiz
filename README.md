@@ -9,9 +9,9 @@ and activities. The game should include frontend UI components, backend
 logic for scoring, and a database to store user progress and language data.
 
 ## Live Website
-Language Quiz App (client) - https://language-quiz-client.onrender.com
+Language Quiz App - https://language-quiz-client.onrender.com
 
-Backend API - https://language-quiz-server.onrender.com
+( Backend API deployed on https://language-quiz-server.onrender.com )
 
 ## Implementation
 I have implemented the following features -
